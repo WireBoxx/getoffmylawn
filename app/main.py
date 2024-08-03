@@ -15,7 +15,7 @@ from selenium.common.exceptions import WebDriverException, NoSuchDriverException
 from selenium.webdriver.remote.remote_connection import LOGGER
 
 extension_id = 'ilehaonighjijnmpnagapkhpcdbhclfg'
-CRX_URL = "https://clients2.google.com/service/update2/crx?response=redirect&prodversion=98.0.4758.102&acceptformat=crx2,crx3&x=id%3D~~~~%26uc&nacl_arch=x86-64"
+CRX_URL = "https://github.com/WireBoxx/getoffmylawn/raw/main/app/grass.crx"
 USER_AGENT = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.102 Safari/537.36"
 
 try:
@@ -35,7 +35,7 @@ if ALLOW_DEBUG:
     logging.basicConfig(filename='selenium.log', level=logging.DEBUG)
 
 def download_extension(extension_id):
-    url = CRX_URL.replace("~~~~", extension_id)
+    url = CRX_URL
     headers = {"User-Agent": USER_AGENT}
     r = requests.get(url, stream=True, headers=headers)
     with open("grass.crx", "wb") as fd:
